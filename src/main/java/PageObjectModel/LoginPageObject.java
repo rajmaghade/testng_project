@@ -25,14 +25,19 @@ public class LoginPageObject {
 		
 	}
 	
-	public WebElement enterpassword() {
+	public WebElement enterPassword() {
 		return driver.findElement(password);
 	}
-	public WebElement clickOnlogin() {
+	public WebElement clickOnLogin() {
 		return driver.findElement(login);
 	}
-	public WebElement clickOntryForFree() {
+	public WebElement clickOnTryForFree() {
 		return driver.findElement(tryForFree);
+	}
+
+	public WebElement errorMessage() {
+		// TODO Auto-generated method stub
+		return driver.findElement(null);
 	}
 
 

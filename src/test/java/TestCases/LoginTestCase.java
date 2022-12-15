@@ -5,28 +5,25 @@ import org.openqa.selenium.WebDriver;
 import PageObjectModel.LoginPageObject;
 import java.io.IOException;
 import Resources.basicClass;
+import Resources.commonMethods;
+import Resources.constant;
 
-@Test
+
 public class LoginTestCase extends basicClass {
 	
-	public 	WebDriver driver;
-
+@Test
 
 	public void login() throws IOException {
 		
-		browserIntialization();
-		
-		//This driver has Scope 
-		
-		driver.get("https://login.perf1h.pc-rnd.salesforce.com/");
-		
 		LoginPageObject LPO = new LoginPageObject(driver);
 		
-		LPO.enterUsername().sendKeys("rahul");
-		LPO.enterpassword().sendKeys("test");
-		LPO.clickOnlogin().click();
+		LPO.enterUsername().sendKeys(constant.username);
 		
+		LPO.enterPassword().sendKeys(constant.password);
 		
+		LPO.clickOnLogin().click();
+		
+		commonMethods.handleAssertion(LPO.errorMessage().getText(),constant.errormessage);
 		
 	}
 	

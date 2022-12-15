@@ -9,7 +9,8 @@ public class commonMethods {
 	public static void selectDropdown(WebElement Dropdown,int index) {
 		
 		Select s=new Select(Dropdown);
-		s.selectByIndex(0);
+		
+		s.selectByIndex(index);
 		
 	}
 	
@@ -18,9 +19,11 @@ public class commonMethods {
 		SoftAssert assertion=new SoftAssert();
 		
 		String actual=actualString;
+		
 		String expected=expectedString;
 		
 		assertion.assertEquals(actual,expected);
+		
 		assertion.assertAll();
 		
 	}

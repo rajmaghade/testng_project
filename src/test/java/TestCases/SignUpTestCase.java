@@ -10,27 +10,26 @@ import org.testng.annotations.Test;
 import PageObjectModel.LoginPageObject;
 import PageObjectModel.SignUpPageObject;
 import Resources.basicClass;
+import Resources.commonMethods;
+import Resources.constant;
 
 public class SignUpTestCase extends basicClass {
 	
-	public 	WebDriver driver;
-
-	
 	@Test
-	public void verifySignUp() throws IOException {
+	public void verifySignUp() throws IOException, InterruptedException {
 		
-		browserIntialization();
-		driver.get("https://login.perf1h.pc-rnd.salesforce.com/");
 		
 		LoginPageObject LPO = new LoginPageObject(driver);
-		LPO.clickOntryForFree().click();
 		
-		SignUpPageObject SPO = new SignUpPageObject();
+		LPO.clickOnTryForFree().click();
+		
+		SignUpPageObject SPO = new SignUpPageObject(driver);
+		
+		Thread.sleep(5000);
 
-		SPO.enterFirstName().sendKeys("Ramesh");
+		SPO.enterFirstName().sendKeys(constant.firstname);
 		
-		Select s=new Select(SPO.selectCompanyEmployees());
-		s.selectByIndex(1);
+		commonMethods.selectDropdown(SPO.selectCompanyEmployees(), 1);
 		
 		
 		
